@@ -1,0 +1,21 @@
+.title{
+    text-align: center;
+}
+
+.card-container{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.card{
+    width: 20vw;
+    height: 40vh;
+    border-color: black;
+    border-style: solid;
+    box-shadow: 5px 10px;
+}
+
+img{
+    width: 15vw;
+}
