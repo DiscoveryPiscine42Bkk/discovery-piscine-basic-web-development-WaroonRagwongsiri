@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Balloon</title>
+
+    <style>
+      #balloon {
+        width: 200px;
+        border-radius: 100% 100% 100% 100%;
+        background-color: red;
+        aspect-ratio: 1/1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="balloon"></div>
+  </body>
+
+  <script defer>
+    const balloon = document.getElementById("balloon");
+    const balloon_color = ["red", "green", "blue"];
+    let balloon_index = 0;
+    balloon.style.width = "200px";
+    balloon.style.backgroundColor = balloon_color[balloon_index];
+
+    function increase_balloon() {
+      let balloon_width = balloon.style.width.replace("px", "");
+      balloon_width = parseInt(balloon_width);
+
+      balloon_index++;
+      balloon.style.backgroundColor = balloon_color[balloon_index % 3];
+
+      if (balloon_width > 450) {
+        balloon.style.width = "200px";
+        return;
+      }
+      balloon_width = `${balloon_width + 10}px`;
+      balloon.style.width = balloon_width;
+    }
+
+    function decrease_balloon() {
+      let balloon_width = balloon.style.width.replace("px", "");
+      balloon_width = parseInt(balloon_width);
+
+      balloon_index--;
+      if (balloon_index < 0){
+        balloon_index = 2
+      }
+      balloon.style.backgroundColor = balloon_color[balloon_index % 3]
+
+      if (balloon_width <= 200) {
+        return;
+      }
+      balloon_width = `${balloon_width - 5}px`;
+      balloon.style.width = balloon_width;
+    }
+
+    balloon.addEventListener("click", increase_balloon);
+    balloon.addEventListener("pointerleave", decrease_balloon);
+  </script>
+</html>
