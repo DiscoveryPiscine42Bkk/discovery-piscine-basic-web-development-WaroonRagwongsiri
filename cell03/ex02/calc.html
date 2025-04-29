@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <form>
+      <input type="number" id="a" />
+      <select name="operation" id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+      </select>
+      <input type="number" id="b" />
+      <button id="btn" type="button" value="Try me!">Try me!</button>
+    </form>
+    <script defer>
+      var op = document.getElementById("op");
+      let button = document.getElementById("btn")
+      
+      button.addEventListener("click",(e=>{
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let operator = op.options[op.selectedIndex].value
+        // console.log(a,b,operation)
+        // console.log(typeof(a),typeof(b),typeof(operation))
+        a = parseInt(a)
+        b = parseInt(b)
+        if(isNaN(a) || isNaN(b) || Math.sign(a) == -1 || Math.sign(b) == -1){
+          alert("Error :(")
+          return
+        }
+
+        alert(calculate(a,b,operator))
+      }))
+
+      function calculate(x,y,operator){
+        switch(operator){
+          case "+":
+            return x + y
+          case "-":
+            return x - y
+          case "*":
+            return x * y
+          case "/":
+            switch(y){
+              case("0"):
+                return "It's over 9000!"
+              default:
+                return x / y
+            }
+          case "%":
+            switch(y){
+              case("0"):
+                return "It's over 9000!"
+              default:
+                return x % y
+            }
+        }
+      }
+
+      function showpopup(){
+        alert("Please, use me...")
+      }
+
+      window.setInterval(showpopup(),30000)
+    </script>
+  </body>
+</html>
