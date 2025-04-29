@@ -1,0 +1,14 @@
+table{
+    width: 100%;
+}
+td{
+    width: 50%;
+}
+
+#cell1{
+    background-color: bisque;
+}
+
+#cell2{
+    background-color: chartreuse;
+}
