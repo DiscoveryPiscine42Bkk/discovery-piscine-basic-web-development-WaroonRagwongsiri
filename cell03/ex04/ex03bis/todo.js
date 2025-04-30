@@ -1,11 +1,12 @@
-function setCookie(name, value) {
-  const date = new Date();
-  let expires = date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value}; ${expires}; path=/`;
-}
+function setCookie(name, value, daysToLive) {
+    const date = new Date();
+    date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
+  }
 
 function deleteCookie(name) {
-  setCookie(name, null, null);
+  setCookie(name, null,null);
 }
 
 function getAllCookie() {
@@ -17,6 +18,9 @@ function getAllCookie() {
 
 function readCookieToDiv(){
     const ft_list = $("#ft_list");
+    if(todolist[0] == ''){
+        return
+    }
     for(let i=0;i<todolist.length;i++){
         let todo_name = todolist[i].split("=")[0]
         let todo_val = todolist[i].split("=")[1]
@@ -35,7 +39,7 @@ function popUpCreateTodo(){
         return
     }
     let last_name = todolist[todolist.length - 1].substring(0,todolist[todolist.length - 1].indexOf("="))
-    setCookie(parseInt(last_name) + 1,text)
+    setCookie(parseInt(last_name) + 1,text,365)
     location.reload()
     return
 }
@@ -60,9 +64,9 @@ btn.on('click',()=>{
     popUpCreateTodo()
 })
 
-$(".todo").each(function (index, element) {
-    let name = element.id
-    $(`${name}`).click(function (e) { 
-        confirmDelete(name)
-    });
-});
+const todos = document.getElementsByClassName("todo")
+for(let i=0;i<todolist.length;i++){
+  todos[i].addEventListener("click",()=>{
+    confirmDelete(todolist[i].split('=')[0])
+  })
+}
