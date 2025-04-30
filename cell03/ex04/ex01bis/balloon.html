@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Balloon</title>
+
+    <style>
+      #balloon {
+        width: 200px;
+        border-radius: 100% 100% 100% 100%;
+        background-color: red;
+        aspect-ratio: 1/1;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div id="balloon"></div>
+  </body>
+
+  <script defer>
+    const balloon = $("#balloon");
+    const balloon_color = ["red", "green", "blue"];
+    let balloon_index = 0;
+    width = 200;
+    balloon.css("width", width);
+    balloon.css("background-color", balloon_color[balloon_index]);
+
+    function increase_balloon() {
+      width += 10;
+      balloon.css("width", width);
+
+      balloon_index++;
+      balloon.css("background-color", balloon_color[balloon_index % 3]);
+
+      if (balloon.width() > 420) {
+        balloon.css("width", 200);
+        return;
+      }
+    }
+
+    function decrease_balloon() {
+      balloon_index--;
+      if (balloon_index < 0) {
+        balloon_index = 2;
+      }
+      balloon.css("background-color", balloon_color[balloon_index % 3]);
+
+      if (balloon.width() <= 200) {
+        return;
+      }
+      width--;
+      balloon.css("width", width);
+    }
+
+    balloon.on("click", increase_balloon);
+    balloon.on("pointerleave", decrease_balloon);
+  </script>
+</html>

@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
     <title>Calculator</title>
   </head>
   <body>
@@ -18,16 +23,15 @@
       <input type="number" id="b" />
       <button id="btn" type="button" value="Try me!">Try me!</button>
     </form>
+
     <script defer>
-      var op = document.getElementById("op");
+      
       let button = document.getElementById("btn")
       
       button.addEventListener("click",(e=>{
-        let a = document.getElementById("a").value;
-        let b = document.getElementById("b").value;
-        let operator = op.options[op.selectedIndex].value
-        // console.log(a,b,operation)
-        // console.log(typeof(a),typeof(b),typeof(operation))
+        let a = $("#a").val()
+        let b = $("#b").val()
+        let operator = $("#op").find(":selected").val();
         a = parseInt(a)
         b = parseInt(b)
         if(isNaN(a) || isNaN(b) || Math.sign(a) == -1 || Math.sign(b) == -1){

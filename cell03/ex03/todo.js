@@ -11,10 +11,6 @@ function deleteCookie(name) {
   setCookie(name, null, null);
 }
 
-function deleteCookie(name) {
-  setCookie(name, null, null);
-}
-
 function getAllCookie() {
   const cDecode = decodeURIComponent(document.cookie);
   const cArray = cDecode.split(";");
