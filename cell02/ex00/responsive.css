@@ -1,14 +1,17 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
 table{
     width: 100%;
-}
-td{
-    width: 50%;
+    border-collapse: collapse;
 }
 
 #cell1{
-    background-color: bisque;
+    background-color: bisque; width: 50%; min-width: 50%; height: 100vh; min-height: 100vh; text-align: center;
 }
 
 #cell2{
-    background-color: chartreuse;
+    background-color: chartreuse; width: 50%; min-width: 50%; height: 100vh; min-height: 100vh; text-align: center;
 }
