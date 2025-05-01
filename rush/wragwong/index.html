@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-pt-[4rem] sm:scroll-pt-[5rem] md:scroll-pt-[7rem]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,66 +15,73 @@
     <title>CVWaroon</title>
   </head>
 
-  <body class="h-[300vh]">
-    <nav class="p-2 flex flex-col fixed items-end w-full z-50">
-      <button id="hamburger">
-        <i class="fa-solid fa-bars p-2.5 text-2xl"></i>
-      </button>
-      <div
-        class="nav-item flex items-end justify-around flex-col bg-black text-white text-xl font-serif rounded-md scale-105 z-50 hidden"
-        id="hamburger-content"
-      >
-        <a
-          href="#first-section"
-          class="w-full hover:bg-white hover:text-black text-end"
-          ><h2>Profile</h2></a
-        >
-        <a
-          href="#second-section"
-          class="w-full hover:bg-white hover:text-black text-end"
-          ><h2>Skill</h2></a
-        >
-        <as
-          href="#third-section"
-          class="w-full hover:bg-white hover:text-black text-end"
-          ><h2>Contact</h2></as
-        >
+  <body class="h-full w-full">
+    <nav class="pt-2 flex fixed w-full h-16 sm:h-20 md:h-28 z-50 border-b-2 items-center duration-500" id="nav">
+      <div class="w-full">
+        <ul class="flex w-full justify-center gap-7 text-base sm:text-lg md:text-xl">
+          <a href="#home"><li class="inline ">Home</li></a>
+          <a href="#first-section"><li class="inline ">Profile</li></a>
+          <a href="#second-section"><li class="inline ">Skill</li></a>
+          <a href="#third-section"><li class="inline ">Contact</li></a>
+        </ul>
       </div>
     </nav>
-    <section
-      class="first-section bg-[url('assets/bg.gif')] bg-no-repeat bg-fixed bg-center bg-cover h-[85vh] w-full"
-      id="first-section"
+    <header
+      class="bg-[url('assets/bg.gif')] bg-no-repeat bg-fixed bg-center bg-cover h-[100vh] w-full flex justify-center"
+      id="home"
     >
-      <div class="profile-card p-[30vh] text-center">
-        <div class="name-picture relative text-center">
-          <img
-            src="https://placehold.co/600x400"
-            id="profile-pic"
-            class="w-[20vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          />
+      <div class="text-center flex justify-center">
+        <div class="relative text-center">
           <div
-            class="name text-[7vh] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+            class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex h-full justify-center flex-col gap-5"
           >
-            Waroon Ragwongsiri
+            <img
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/4 sm:w-1/3 md:w-2/3"
+            />
+            <h1 class="text-4xl relative sm:text-6xl md:text-8xl font-serif">
+              Waroon Ragwongsiri
+            </h1>
+            <h3 class="text-sm font-mono text-center relative">
+              CE KMITL | 42Bangkok
+            </h3>
           </div>
         </div>
-        <h3 class="p-[14vh]" id="occupation">CE KMITL | 42Bangkok</h3>
+      </div>
+    </header>
+    <section class="h-[100vh]" id="first-section">
+      <div class="flex justify-center h-full items-center md:gap-52">
+        <div class="flex flex-col">
+          <h1>Profile</h1>
+          <h3>Waroon Ragwongsiri</h3>
+        </div>
+        <img class="w-[30vw]" src="https://placehold.co/400x600">
       </div>
     </section>
-    <section class="second-section" id="second-section"></section>
+    <section class="h-[100vh]" id="second-section">
+      <div></div>
+    </section>
 
+    <footer class="h-full" id="third-section">
+      <hr class="h-1 border-b-2" />
+      <div class="flex flex-col items-center pt-5">
+        <h2 class="text-lg sm:text-2xl md:text-5xl">waroonwork@gmail.com</h2>
+        <div class="flex flex-row justify-center w-full gap-10 p-4">
+          <a href=""
+            ><i class="fa-brands fa-github text-lg sm:text-2xl md:text-4xl"></i
+          ></a>
+          <a href=""
+            ><i
+              class="fa-brands fa-instagram text-lg sm:text-2xl md:text-4xl"
+            ></i
+          ></a>
+          <a href=""
+            ><i
+              class="fa-brands fa-facebook text-lg sm:text-2xl md:text-4xl"
+            ></i
+          ></a>
+        </div>
+      </div>
+    </footer>
     <script src="index.js"></script>
   </body>
-
-  <footer id="third-section">
-    <hr class="h-1 border-b-2" />
-    <div class="flex flex-col items-center">
-      <h2>waroonwork@gmail.com</h2>
-      <div class="flex flex-row justify-center w-full gap-5 ">
-        <a href=""><i class="fa-brands fa-github"></i></a>
-        <a href=""><i class="fa-brands fa-instagram"></i></a>
-        <a href=""><i class="fa-brands fa-facebook"></i></a>
-      </div>
-    </div>
-  </footer>
 </html>

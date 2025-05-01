@@ -1,10 +1,7 @@
-let hamburger = document.getElementById("hamburger")
-
-hamburger.addEventListener('click',()=>{
-    let hamcon = document.getElementById("hamburger-content")
-    if(hamcon.classList.contains('hidden')){
-        hamcon.classList.remove('hidden')
+window.addEventListener('scroll',()=>{
+    if(pageYOffset > 180){
+        document.getElementById("nav").classList.add('bg-white')
     }else{
-        hamcon.classList.add('hidden')
+        document.getElementById("nav").classList.remove('bg-white')
     }
 })
